@@ -10,4 +10,5 @@ FROM docker.io/debian:bookworm-slim
 LABEL name="udpxy" maintainer="Aurelio"
 RUN mkdir -p /etc/mcproxy
 COPY --from=builder /src/udpxy /usr/local/bin/udpxy
-CMD ["/usr/local/bin/udpxy"]
+ENTRYPOINT ["/usr/local/bin/udpxy"]
+CMD ["-T", "-v", "-p", "4022", "-c", "25"]
